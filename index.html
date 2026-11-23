@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ahmed — developer</title>
-<meta name="description" content="Developer. Interfaces, apps, games and the systems behind them: PHP, MySQL, WordPress, Flutter, Dart, Go.">
+<title>Ahmed — web developer</title>
+<meta name="description" content="Web developer — PHP, MySQL, WordPress, JavaScript. Also building mobile apps and games with Flutter.">
 <meta name="theme-color" content="#0b0b0c">
-<meta property="og:title" content="Ahmed — developer">
+<meta property="og:title" content="Ahmed — web developer">
 <meta property="og:description" content="Interfaces you'll notice. Systems you won't. Both are mine.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script>try { var t = localStorage.getItem('theme'); if (t) { document.documentElement.dataset.theme = t; } } catch (e) {}</script>
@@ -77,6 +77,16 @@ section > .mono { display: block; margin-bottom: 28px; }
 .stack strong { font-size: 1.2rem; font-weight: 500; transition: color .3s; }
 .stack span:last-child { color: var(--dim); }
 
+.role { margin: -8px 0 0; font-family: var(--mono); font-size: .85rem; letter-spacing: .08em; color: var(--dim); }
+.role b { color: var(--gold); font-weight: 400; }
+
+.path { list-style: none; margin: 0; padding: 0 0 0 22px; border-inline-start: 1px solid var(--line); display: grid; gap: 30px; }
+.path li { position: relative; }
+.path li::before { content: ""; position: absolute; inset-inline-start: -27px; top: .55em; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 1px solid var(--gold); }
+.path li:last-child::before { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+.path strong { display: block; font-size: 1.15rem; font-weight: 500; }
+.path p { margin: 4px 0 0; color: var(--dim); max-width: 56ch; }
+
 .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .rules div { background: var(--bg); padding: 26px 22px; }
 .rules b { display: block; font-family: var(--mono); font-size: .72rem; font-weight: 400; color: var(--gold); margin-bottom: 10px; }
@@ -125,6 +135,7 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 			<path pathLength="1" d="M3 33C9 24 14 13 18 4C19 14 21 24 24 32C26 26 28 20 31 14C33 9 35 4 33 3C31 2 30 10 30 20L30 32C31 26 34 21 37 21C40 21 40 26 40 32C41 26 43 21 46 21C49 21 49 26 49 32C50 26 52 21 55 21C58 21 58 26 58 32C59 30 62 29 65 27C68 25 68 21 65 21C61 21 60 27 61 30C62 33 66 33 69 30C72 27 76 22 80 22C75 20 70 24 71 29C72 33 77 33 80 26C82 18 84 8 85 3C85 14 84 24 85 31C86 34 92 32 97 27"/>
 			<path class="bar" pathLength="1" d="M7 22C12 19 18 18 26 20"/>
 		</svg>
+		<p class="role"><b>Web developer</b> · PHP · MySQL · WordPress — now also apps &amp; games</p>
 		<h1><span class="c2">Interfaces</span> you'll notice. <span class="c5">Systems</span> you won't. <em>Both are mine.</em></h1>
 		<p class="decode" aria-live="polite">&gt; <span id="decode">initialising</span><i class="caret"></i></p>
 		<div class="scroll" aria-hidden="true"></div>
@@ -132,23 +143,32 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 
 	<section class="reveal">
 		<span class="mono">01 — Subject</span>
-		<p class="lead">A developer who works on both sides of the screen.</p>
-		<p><span class="c2">Interfaces</span> that feel right in the hand. <span class="c4">WordPress themes</span> that load before you blink. <span class="c1">Apps</span> that feel like they were always on your phone, and <span class="c3">games</span> people don't put down. Underneath it all: <span class="c5">databases</span> that answer before you finish asking, <span class="c6">back-ends</span> that hold when traffic doesn't. Pixel to query, I build the whole thing, and make sure it doesn't <span class="redact" tabindex="0">break</span>.</p>
+		<p class="lead">A web developer who works on both sides of the screen.</p>
+		<p>The web is home: <span class="c2">interfaces</span> that feel right, <span class="c4">WordPress themes</span> built from scratch that load before you blink, and the <span class="c6">back-ends</span> and <span class="c5">databases</span> that keep it all standing. Pixel to query, I build the whole thing. Lately I've carried that into <span class="c1">mobile apps</span> and <span class="c3">games</span> with Flutter — same care, new screens.</p>
 	</section>
 
 	<section class="reveal">
-		<span class="mono">02 — Instruments</span>
+		<span class="mono">02 — Path</span>
+		<ol class="path">
+			<li><strong class="c5">The web</strong><p>Where it started, and still the core: PHP, MySQL and WordPress — themes, plugins and the systems behind them.</p></li>
+			<li><strong class="c1">Mobile apps</strong><p>Took the same discipline to the phone with Flutter &amp; Dart — one codebase, every screen.</p></li>
+			<li><strong class="c3">Games</strong><p>Mobile games in Flutter — built to be picked up, and hard to put down.</p></li>
+		</ol>
+	</section>
+
+	<section class="reveal">
+		<span class="mono">03 — Instruments</span>
 		<ul class="stack">
-			<li><span class="mono">01</span><strong class="c1">PHP</strong><span>The backbone. Systems, APIs, the logic behind every click.</span></li>
-			<li><span class="mono">02</span><strong class="c5">MySQL</strong><span>The memory. Schemas designed to still make sense in five years.</span></li>
-			<li><span class="mono">03</span><strong class="c2">Flutter &amp; Dart</strong><span>The face. Apps and games — one codebase, every screen.</span></li>
-			<li><span class="mono">04</span><strong class="c6">Go</strong><span>The edge. For when milliseconds are a matter of principle.</span></li>
-			<li><span class="mono">05</span><strong class="c3">WordPress</strong><span>Themes and plugins from scratch. Pixel-perfect front, clean code behind.</span></li>
+			<li><span class="mono">01</span><strong class="c1">PHP &amp; MySQL</strong><span>The backbone. APIs, systems, and schemas that still make sense in five years.</span></li>
+			<li><span class="mono">02</span><strong class="c3">WordPress</strong><span>Themes and plugins from scratch. Pixel-perfect front, clean code behind.</span></li>
+			<li><span class="mono">03</span><strong class="c4">HTML, CSS &amp; JS</strong><span>The front. Semantic markup, lean CSS, vanilla JavaScript first.</span></li>
+			<li><span class="mono">04</span><strong class="c2">Flutter &amp; Dart</strong><span>The newer chapter. Mobile apps and games from one codebase.</span></li>
+			<li><span class="mono">05</span><strong class="c6">Go</strong><span>The sharp tool. Small, fast services and CLI tools when the job calls for it.</span></li>
 		</ul>
 	</section>
 
 	<section class="reveal">
-		<span class="mono">03 — Protocol</span>
+		<span class="mono">04 — Protocol</span>
 		<div class="rules">
 			<div><b>[ i ]</b><p>Quiet code. If it needs a manual, it isn't finished.</p></div>
 			<div><b>[ ii ]</b><p>Fast by default. Performance is a feature nobody asks for and everyone feels.</p></div>
@@ -157,15 +177,15 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 	</section>
 
 	<section class="reveal">
-		<span class="mono">04 — Field test</span>
+		<span class="mono">05 — Field test</span>
 		<p class="lead" style="margin-bottom:22px">Ship a packet down the pipeline. Tap to flip gravity and dodge the errors. How far can you deploy?</p>
 		<div class="game"><div data-game></div></div>
 	</section>
 
 	<section class="contact reveal">
-		<span class="mono">05 — Signal</span>
+		<span class="mono">06 — Signal</span>
 		<h2>Have a problem <span class="c2">worth solving?</span></h2>
-		<p class="mono" style="margin:-8px 0 22px">Based in Egypt · UTC+2 · working worldwide</p>
+		<p class="mono" style="margin:-8px 0 22px"><i class="dot"></i>Open to freelance &amp; full-time · Egypt · UTC+2 · working worldwide</p>
 		<div class="links">
 			<a href="mailto:hello@ahmedcode.com">hello@ahmedcode.com ↗</a>
 			<a href="https://github.com/ahmedcodev" target="_blank" rel="noopener">GitHub ↗</a>
@@ -205,7 +225,7 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 	document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
 	// Decrypting lines.
-	var lines = ['interfaces people actually enjoy', 'apps & games in flutter', 'wordpress themes from scratch', 'back-ends that don\'t blink', 'currently: building something'];
+	var lines = ['web developer', 'wordpress themes from scratch', 'back-ends that don\'t blink', 'now also: apps & games in flutter', 'currently: building something'];
 	var el = document.getElementById('decode');
 	var glyphs = '!<>-_\\/[]{}=+*^?#01';
 	if (reduce) { el.textContent = lines[0]; return; }
