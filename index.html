@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,14 +9,26 @@
 <meta property="og:title" content="Ahmed — developer">
 <meta property="og:description" content="Interfaces you'll notice. Systems you won't. Both are mine.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>try { var t = localStorage.getItem('theme'); if (t) { document.documentElement.dataset.theme = t; } } catch (e) {}</script>
 <style>
-:root {
+:root, [data-theme="dark"] {
 	--bg: #0b0b0c; --fg: #e8e3d6; --dim: #7d786d; --line: #26241f; --gold: #c9a45c;
+	--c1: #a78bfa; --c2: #f472b6; --c3: #fb923c; --c4: #2dd4bf; --c5: #60a5fa; --c6: #facc15;
 	--mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
 	--sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 * { box-sizing: border-box; }
 html { color-scheme: dark; }
+[data-theme="light"] { --bg: #f7f5f0; --fg: #17151a; --dim: #6f6a75; --line: #e3ded3; --gold: #b07d2b;
+	--c1: #7c3aed; --c2: #db2777; --c3: #ea580c; --c4: #0d9488; --c5: #2563eb; --c6: #ca8a04; color-scheme: light; }
+[data-theme="light"] body::before { opacity: .04; }
+[data-theme="light"] .glow { background: radial-gradient(circle, rgba(124, 58, 237, .08), transparent 65%); }
+body { transition: background .4s, color .4s; }
+.c1 { color: var(--c1); } .c2 { color: var(--c2); } .c3 { color: var(--c3); } .c4 { color: var(--c4); } .c5 { color: var(--c5); } .c6 { color: var(--c6); }
+.stack li:hover strong[class] { color: var(--fg); }
+.theme { position: fixed; top: 18px; inset-inline-end: 18px; z-index: 5; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--bg); color: var(--fg); font: .72rem var(--mono); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: border-color .3s, color .3s; }
+.theme:hover, .theme:focus-visible { border-color: var(--gold); color: var(--gold); outline: none; }
+.theme i { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(90deg, currentColor 50%, transparent 50%); border: 1px solid currentColor; }
 body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg); font: 16px/1.7 var(--sans); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--gold); color: var(--bg); }
 a { color: inherit; }
@@ -76,7 +88,7 @@ section > .mono { display: block; margin-bottom: 28px; }
 .links a:hover, .links a:focus-visible { border-color: var(--gold); color: var(--gold); background: rgba(201, 164, 92, .06); outline: none; }
 footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 32px 24px 48px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); }
 
-.game { border: 1px solid var(--line); padding: 16px; --bh-fg: #e8e3d6; --bh-accent: #c9a45c; --bh-bug: #c9a45c; }
+.game { border: 1px solid var(--line); padding: 16px; --bh-fg: var(--fg); --bh-accent: #c9a45c; --bh-bug: var(--c2); }
 .bh-hud { display: flex; gap: 22px; font: .75rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
 .bh-hud b { color: var(--fg); font-weight: 400; }
 .bh-stage { position: relative; height: 260px; background: repeating-linear-gradient(0deg, transparent 0 31px, var(--line) 31px 32px); }
@@ -100,6 +112,7 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 </head>
 <body>
 <div class="glow" aria-hidden="true"></div>
+<button class="theme" type="button" aria-label="Toggle light / dark mode"><i></i><span data-label>Light</span></button>
 <main>
 	<header class="hero">
 		<div class="file mono">
@@ -111,7 +124,7 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 			<path pathLength="1" d="M3 33C9 24 14 13 18 4C19 14 21 24 24 32C26 26 28 20 31 14C33 9 35 4 33 3C31 2 30 10 30 20L30 32C31 26 34 21 37 21C40 21 40 26 40 32C41 26 43 21 46 21C49 21 49 26 49 32C50 26 52 21 55 21C58 21 58 26 58 32C59 30 62 29 65 27C68 25 68 21 65 21C61 21 60 27 61 30C62 33 66 33 69 30C72 27 76 22 80 22C75 20 70 24 71 29C72 33 77 33 80 26C82 18 84 8 85 3C85 14 84 24 85 31C86 34 92 32 97 27"/>
 			<path class="bar" pathLength="1" d="M7 22C12 19 18 18 26 20"/>
 		</svg>
-		<h1>Interfaces you'll notice. Systems you won't. <em>Both are mine.</em></h1>
+		<h1><span class="c2">Interfaces</span> you'll notice. <span class="c5">Systems</span> you won't. <em>Both are mine.</em></h1>
 		<p class="decode" aria-live="polite">&gt; <span id="decode">initialising</span><i class="caret"></i></p>
 		<div class="scroll" aria-hidden="true"></div>
 	</header>
@@ -119,18 +132,18 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 	<section class="reveal">
 		<span class="mono">01 — Subject</span>
 		<p class="lead">A developer who works on both sides of the screen.</p>
-		<p>Interfaces that feel right in the hand. WordPress themes that load before you blink. Apps that feel like they were always on your phone, and games people don't put down. Underneath it all: databases that answer before you finish asking, back-ends that hold when traffic doesn't. Pixel to query, I build the whole thing, and make sure it doesn't <span class="redact" tabindex="0">break</span>.</p>
+		<p><span class="c2">Interfaces</span> that feel right in the hand. <span class="c4">WordPress themes</span> that load before you blink. <span class="c1">Apps</span> that feel like they were always on your phone, and <span class="c3">games</span> people don't put down. Underneath it all: <span class="c5">databases</span> that answer before you finish asking, <span class="c6">back-ends</span> that hold when traffic doesn't. Pixel to query, I build the whole thing, and make sure it doesn't <span class="redact" tabindex="0">break</span>.</p>
 	</section>
 
 	<section class="reveal">
 		<span class="mono">02 — Instruments</span>
 		<ul class="stack">
-			<li><span class="mono">01</span><strong>PHP</strong><span>The backbone. Systems, APIs, the logic behind every click.</span></li>
-			<li><span class="mono">02</span><strong>MySQL</strong><span>The memory. Schemas designed to still make sense in five years.</span></li>
-			<li><span class="mono">03</span><strong>Flutter</strong><span>The face. Apps and games — one codebase, every screen.</span></li>
-			<li><span class="mono">04</span><strong>Dart</strong><span>The language behind the face. Typed, sound, quick.</span></li>
-			<li><span class="mono">05</span><strong>Go</strong><span>The edge. For when milliseconds are a matter of principle.</span></li>
-			<li><span class="mono">06</span><strong>WordPress</strong><span>Themes and plugins from scratch. Pixel-perfect front, clean code behind.</span></li>
+			<li><span class="mono">01</span><strong class="c1">PHP</strong><span>The backbone. Systems, APIs, the logic behind every click.</span></li>
+			<li><span class="mono">02</span><strong class="c5">MySQL</strong><span>The memory. Schemas designed to still make sense in five years.</span></li>
+			<li><span class="mono">03</span><strong class="c2">Flutter</strong><span>The face. Apps and games — one codebase, every screen.</span></li>
+			<li><span class="mono">04</span><strong class="c4">Dart</strong><span>The language behind the face. Typed, sound, quick.</span></li>
+			<li><span class="mono">05</span><strong class="c6">Go</strong><span>The edge. For when milliseconds are a matter of principle.</span></li>
+			<li><span class="mono">06</span><strong class="c3">WordPress</strong><span>Themes and plugins from scratch. Pixel-perfect front, clean code behind.</span></li>
 		</ul>
 	</section>
 
@@ -151,18 +164,17 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 
 	<section class="contact reveal">
 		<span class="mono">05 — Signal</span>
-		<h2>Have a problem worth solving?</h2>
+		<h2>Have a problem <span class="c2">worth solving?</span></h2>
 		<p class="mono" style="margin:-8px 0 22px">Based in Egypt · UTC+2 · working worldwide</p>
 		<div class="links">
 			<a href="mailto:hello@ahmedcode.com">hello@ahmedcode.com ↗</a>
 			<a href="https://github.com/ahmedcodev" target="_blank" rel="noopener">GitHub ↗</a>
-			<a href="https://ahmedcode.com/" target="_blank" rel="noopener">ahmedcode.com ↗</a>
 		</div>
 	</section>
 </main>
 <footer class="mono">
 	<span>© <span id="y">2026</span> Ahmed</span>
-	<span>End of file. · <a href="light.html">v2</a> · <a href="terminal.html">v3</a></span>
+	<span>End of file. <a href="terminal" style="color:var(--dim);text-decoration:none" title="you found it">&gt;_</a></span>
 </footer>
 
 <script src="bughunt.js" defer></script>
@@ -170,6 +182,14 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 (function () {
 	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	document.getElementById('y').textContent = new Date().getFullYear();
+	var root = document.documentElement, tbtn = document.querySelector('.theme'), tl = tbtn.querySelector('[data-label]');
+	function tsync() { tl.textContent = root.dataset.theme === 'dark' ? 'Light' : 'Dark'; }
+	tbtn.addEventListener('click', function () {
+		root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+		try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+		tsync();
+	});
+	tsync();
 
 	// Cursor light.
 	var glow = document.querySelector('.glow');
