@@ -6,8 +6,8 @@
 
 <br><br>
 
-### Most of what I build, you'll never see.
-### That's the point.
+### Interfaces you'll notice. Systems you won't.
+### Both are mine.
 
 </div>
 
@@ -15,15 +15,16 @@
 
 ```text
 > whoami
-  a developer who lives where the server meets the screen.
+  a developer who works on both sides of the screen.
 
 > cat mission.txt
-  databases that answer before you finish asking.
-  back-ends that hold when traffic doesn't.
-  apps that feel like they were always on your phone.
+  interfaces that feel right in the hand.
+  apps and games people don't put down.
+  wordpress themes that load before you blink.
+  back-ends and databases that hold when traffic doesn't.
 
 > ls ./instruments
-  php/      the backbone   — systems, APIs, the heavy lifting
+  php/      the backbone   — systems, APIs, the logic behind every click
   mysql/    the memory     — schemas that still make sense in five years
   flutter/  the face       — apps & games, one codebase, every screen
   dart/     the language   — typed, sound, quick
