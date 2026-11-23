@@ -55,7 +55,7 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; back
 		<path class="bar2" pathLength="1" d="M7 22C12 19 18 18 26 20"/>
 	</svg>
 </template>
-<script src="stack.js"></script>
+<script src="game.js"></script>
 <script>
 (function () {
 	var screen = document.getElementById('screen'), chips = document.getElementById('chips');
@@ -69,7 +69,7 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; back
 				'  whoami     who is this',
 				'  stack      what I work with',
 				'  games      yes, I make those too',
-				'  play       build the stack (tap / space)',
+				'  play       deploy run (tap / space)',
 				'  contact    open a channel',
 				'  sudo       try it',
 				'  clear      clean the screen'
@@ -106,8 +106,8 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; back
 			box.className = 'game';
 			box.innerHTML = '<div data-game></div>';
 			screen.appendChild(box);
-			window.StackGame && window.StackGame(box.firstChild);
-			return ['<span class="dim">tap or press space to drop each layer. perfect drops grow it back.</span>'];
+			window.MiniGame && window.MiniGame(box.firstChild);
+			return ['<span class="dim">tap or press space to flip gravity. dodge the errors.</span>'];
 		},
 		contact: function () {
 			return [
