@@ -6,6 +6,8 @@
 
 <br><br>
 
+<sub><b>Web developer</b> · PHP · MySQL · WordPress — now also apps &amp; games</sub>
+
 ### Interfaces you'll notice. Systems you won't.
 ### Both are mine.
 
@@ -15,21 +17,25 @@
 
 ```text
 > whoami
-  a developer who works on both sides of the screen.
+  a web developer who works on both sides of the screen.
 
 > cat mission.txt
   interfaces that feel right in the hand.
-  apps and games people don't put down.
   wordpress themes that load before you blink.
   back-ends and databases that hold when traffic doesn't.
+  lately: mobile apps and games people don't put down.
+
+> cat path.log
+  [1] the web        php, mysql & wordpress — where it started, still the core
+  [2] mobile apps    flutter & dart — one codebase, every screen
+  [3] games          mobile games in flutter — easy to pick up, hard to put down
 
 > ls ./instruments
-  php/      the backbone   — systems, APIs, the logic behind every click
-  mysql/    the memory     — schemas that still make sense in five years
-  flutter/  the face       — apps & games, one codebase, every screen
-  dart/     the language   — typed, sound, quick
-  go/       the edge       — when milliseconds are a matter of principle
-  wp/       the craft      — themes & plugins from scratch, no bloat
+  php+mysql/     the backbone       — APIs, systems, schemas that still make sense in five years
+  wordpress/     the craft          — themes & plugins from scratch, no bloat
+  html-css-js/   the front          — semantic markup, lean css, vanilla js first
+  flutter+dart/  the newer chapter  — mobile apps & games from one codebase
+  go/            the sharp tool     — small, fast services and CLI tools
 ```
 
 <div align="center">
@@ -40,6 +46,9 @@
 <img src="https://img.shields.io/badge/Dart-0b0b0c?style=for-the-badge&logo=dart&logoColor=c9a45c">
 <img src="https://img.shields.io/badge/Go-0b0b0c?style=for-the-badge&logo=go&logoColor=c9a45c">
 <img src="https://img.shields.io/badge/WordPress-0b0b0c?style=for-the-badge&logo=wordpress&logoColor=c9a45c">
+<img src="https://img.shields.io/badge/HTML-0b0b0c?style=for-the-badge&logo=html5&logoColor=c9a45c">
+<img src="https://img.shields.io/badge/CSS-0b0b0c?style=for-the-badge&logo=css3&logoColor=c9a45c">
+<img src="https://img.shields.io/badge/JavaScript-0b0b0c?style=for-the-badge&logo=javascript&logoColor=c9a45c">
 
 </div>
 
@@ -58,6 +67,8 @@
 <br>
 
 **Have a problem worth solving?**
+
+<sub>Open to freelance &amp; full-time · Egypt · UTC+2 · working worldwide</sub>
 
 [ahmedcode.com](https://ahmedcode.com/) · [hello@ahmedcode.com](mailto:hello@ahmedcode.com)
 
