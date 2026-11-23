@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed — developer</title>
+<meta name="description" content="Developer. PHP, MySQL, Flutter, Dart, Go. Most of what I build, you'll never see.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Ahmed — developer">
+<meta property="og:description" content="Most of what I build, you'll never see. That's the point.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root {
+	--bg: #0b0b0c; --fg: #e8e3d6; --dim: #7d786d; --line: #26241f; --gold: #c9a45c;
+	--mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+	--sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg); font: 16px/1.7 var(--sans); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--gold); color: var(--bg); }
+a { color: inherit; }
+
+/* Atmosphere: film grain + a light that follows the cursor. */
+body::before { content: ""; position: fixed; inset: -50%; z-index: 0; pointer-events: none; opacity: .07;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0%,100% { transform: translate(0,0) } 33% { transform: translate(-3%,2%) } 66% { transform: translate(2%,-3%) } }
+.glow { position: fixed; z-index: 0; width: 520px; height: 520px; left: var(--x, 50%); top: var(--y, 40%); transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+	background: radial-gradient(circle, rgba(201, 164, 92, .10), transparent 65%); transition: left .5s ease-out, top .5s ease-out; }
+
+main { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 0 24px; }
+.mono { font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+
+/* Hero */
+.hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 28px; padding: 64px 0; }
+.file { display: flex; gap: 18px; flex-wrap: wrap; }
+.file b { color: var(--gold); font-weight: 400; }
+.dot { display: inline-block; width: 6px; height: 6px; margin-inline-end: 8px; border-radius: 50%; background: #6fcf7f; box-shadow: 0 0 10px #6fcf7f; vertical-align: middle; animation: pulse 2s infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+.sign { width: min(520px, 92%); height: auto; overflow: visible; }
+.sign path { fill: none; stroke: var(--fg); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.8s cubic-bezier(.65, 0, .35, 1) .3s forwards; }
+.sign .bar { stroke: var(--gold); animation-delay: 2.8s; animation-duration: .8s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+h1 { margin: 0; font-size: clamp(1.6rem, 4.6vw, 2.8rem); line-height: 1.2; font-weight: 300; letter-spacing: -.02em; max-width: 18ch; }
+h1 em { font-style: normal; color: var(--gold); }
+.decode { font-family: var(--mono); font-size: .95rem; color: var(--dim); min-height: 1.7em; }
+.decode span { color: var(--fg); }
+.caret { display: inline-block; width: .55em; height: 1.1em; margin-inline-start: 2px; background: var(--gold); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.scroll { margin-top: 24px; width: 1px; height: 56px; background: linear-gradient(var(--dim), transparent); }
+
+/* Sections */
+section { padding: 72px 0; border-top: 1px solid var(--line); }
+section > .mono { display: block; margin-bottom: 28px; }
+.lead { margin: 0; font-size: clamp(1.15rem, 2.6vw, 1.45rem); font-weight: 300; line-height: 1.65; max-width: 34ch; }
+.lead + p { color: var(--dim); max-width: 56ch; margin: 22px 0 0; }
+.redact { background: var(--fg); color: transparent; border-radius: 2px; padding: 0 .15em; cursor: help; transition: background .4s, color .4s; }
+.redact:hover, .redact:focus { background: transparent; color: var(--gold); outline: none; }
+
+.stack { list-style: none; margin: 0; padding: 0; }
+.stack li { display: grid; grid-template-columns: 3.2rem 8rem 1fr; align-items: baseline; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); transition: padding .3s, color .3s; }
+.stack li:hover { padding-inline-start: 10px; }
+.stack li:hover strong { color: var(--gold); }
+.stack strong { font-size: 1.2rem; font-weight: 500; transition: color .3s; }
+.stack span:last-child { color: var(--dim); }
+
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.rules div { background: var(--bg); padding: 26px 22px; }
+.rules b { display: block; font-family: var(--mono); font-size: .72rem; font-weight: 400; color: var(--gold); margin-bottom: 10px; }
+.rules p { margin: 0; color: var(--dim); }
+
+.contact h2 { margin: 0 0 22px; font-size: clamp(1.6rem, 5vw, 2.6rem); font-weight: 300; letter-spacing: -.02em; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.links a { font-family: var(--mono); font-size: .82rem; text-decoration: none; padding: 12px 18px; border: 1px solid var(--line); border-radius: 999px; transition: border-color .3s, color .3s, background .3s; }
+.links a:hover, .links a:focus-visible { border-color: var(--gold); color: var(--gold); background: rgba(201, 164, 92, .06); outline: none; }
+footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 32px 24px 48px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 560px) {
+	.stack li { grid-template-columns: 2.4rem 1fr; }
+	.stack span:last-child { grid-column: 2; }
+	.glow { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+	*, *::before { animation: none !important; transition: none !important; }
+	.sign path { stroke-dashoffset: 0; }
+	.reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<main>
+	<header class="hero">
+		<div class="file mono">
+			<span>File <b>#001</b></span>
+			<span><i class="dot"></i>Status: active</span>
+			<span>Location: <span class="redact" tabindex="0">Egypt · UTC+2</span></span>
+		</div>
+		<svg class="sign" viewBox="-4 -4 108 44" role="img" aria-label="Ahmed">
+			<path pathLength="1" d="M3 33C9 24 14 13 18 4C19 14 21 24 24 32C26 26 28 20 31 14C33 9 35 4 33 3C31 2 30 10 30 20L30 32C31 26 34 21 37 21C40 21 40 26 40 32C41 26 43 21 46 21C49 21 49 26 49 32C50 26 52 21 55 21C58 21 58 26 58 32C59 30 62 29 65 27C68 25 68 21 65 21C61 21 60 27 61 30C62 33 66 33 69 30C72 27 76 22 80 22C75 20 70 24 71 29C72 33 77 33 80 26C82 18 84 8 85 3C85 14 84 24 85 31C86 34 92 32 97 27"/>
+			<path class="bar" pathLength="1" d="M7 22C12 19 18 18 26 20"/>
+		</svg>
+		<h1>Most of what I build, you'll never see. <em>That's the point.</em></h1>
+		<p class="decode" aria-live="polite">&gt; <span id="decode">initialising</span><i class="caret"></i></p>
+		<div class="scroll" aria-hidden="true"></div>
+	</header>
+
+	<section class="reveal">
+		<span class="mono">01 — Subject</span>
+		<p class="lead">A developer who lives where the server meets the screen.</p>
+		<p>Databases that answer before you finish asking. Back-ends that hold when traffic doesn't. Apps that feel like they were always on your phone. I work in the layers people only notice when they fail, and I make sure they <span class="redact" tabindex="0">don't</span>.</p>
+	</section>
+
+	<section class="reveal">
+		<span class="mono">02 — Instruments</span>
+		<ul class="stack">
+			<li><span class="mono">01</span><strong>PHP</strong><span>The backbone. Systems, APIs, the heavy lifting.</span></li>
+			<li><span class="mono">02</span><strong>MySQL</strong><span>The memory. Schemas designed to still make sense in five years.</span></li>
+			<li><span class="mono">03</span><strong>Flutter</strong><span>The face. One codebase, every screen, no compromises.</span></li>
+			<li><span class="mono">04</span><strong>Dart</strong><span>The language behind the face. Typed, sound, quick.</span></li>
+			<li><span class="mono">05</span><strong>Go</strong><span>The edge. For when milliseconds are a matter of principle.</span></li>
+			<li><span class="mono">06</span><strong>WordPress</strong><span>Themes and plugins written from scratch. No page-builder bloat, no borrowed code.</span></li>
+		</ul>
+	</section>
+
+	<section class="reveal">
+		<span class="mono">03 — Protocol</span>
+		<div class="rules">
+			<div><b>[ i ]</b><p>Quiet code. If it needs a manual, it isn't finished.</p></div>
+			<div><b>[ ii ]</b><p>Fast by default. Performance is a feature nobody asks for and everyone feels.</p></div>
+			<div><b>[ iii ]</b><p>Built to outlast. The best systems are the ones nobody has to think about.</p></div>
+		</div>
+	</section>
+
+	<section class="contact reveal">
+		<span class="mono">04 — Signal</span>
+		<h2>Have a problem worth solving?</h2>
+		<p class="mono" style="margin:-8px 0 22px">Based in Egypt · UTC+2 · working worldwide</p>
+		<div class="links">
+			<a href="https://github.com/ahmedcodev" target="_blank" rel="noopener">GitHub ↗</a>
+			<a href="https://ahmedcode.com/" target="_blank" rel="noopener">ahmedcode.com ↗</a>
+		</div>
+	</section>
+</main>
+<footer class="mono">
+	<span>© <span id="y">2026</span> Ahmed</span>
+	<span>End of file.</span>
+</footer>
+
+<script>
+(function () {
+	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	document.getElementById('y').textContent = new Date().getFullYear();
+
+	// Cursor light.
+	var glow = document.querySelector('.glow');
+	window.addEventListener('pointermove', function (e) {
+		glow.style.setProperty('--x', e.clientX + 'px');
+		glow.style.setProperty('--y', e.clientY + 'px');
+	}, { passive: true });
+
+	// Reveal on scroll.
+	var io = new IntersectionObserver(function (entries) {
+		entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+	}, { threshold: .15 });
+	document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+	// Decrypting lines.
+	var lines = ['backend systems that don\'t blink', 'mobile apps that feel native', 'databases with good memory', 'code that ships, then disappears', 'currently: building something'];
+	var el = document.getElementById('decode');
+	var glyphs = '!<>-_\\/[]{}=+*^?#01';
+	if (reduce) { el.textContent = lines[0]; return; }
+	var i = 0;
+	function decode(text, done) {
+		var frame = 0, total = text.length + 14;
+		(function tick() {
+			var out = '';
+			for (var c = 0; c < text.length; c++) {
+				out += c < frame - 14 ? text[c] : (text[c] === ' ' ? ' ' : glyphs[Math.floor(Math.random() * glyphs.length)]);
+			}
+			el.textContent = out;
+			if (frame++ < total) { requestAnimationFrame(tick); } else { el.textContent = text; done(); }
+		})();
+	}
+	function next() { decode(lines[i], function () { i = (i + 1) % lines.length; setTimeout(next, 2600); }); }
+	setTimeout(next, 1400);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 108 44" width="420" height="171" role="img" aria-label="Ahmed">
+  <style>
+    path { fill: none; stroke: #9a8a68; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s cubic-bezier(.65, 0, .35, 1) forwards; }
+    .bar { stroke: #c9a45c; animation-delay: 2.3s; animation-duration: .7s; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { path { animation: none; stroke-dashoffset: 0; } }
+  </style>
+  <path pathLength="1" d="M3 33C9 24 14 13 18 4C19 14 21 24 24 32C26 26 28 20 31 14C33 9 35 4 33 3C31 2 30 10 30 20L30 32C31 26 34 21 37 21C40 21 40 26 40 32C41 26 43 21 46 21C49 21 49 26 49 32C50 26 52 21 55 21C58 21 58 26 58 32C59 30 62 29 65 27C68 25 68 21 65 21C61 21 60 27 61 30C62 33 66 33 69 30C72 27 76 22 80 22C75 20 70 24 71 29C72 33 77 33 80 26C82 18 84 8 85 3C85 14 84 24 85 31C86 34 92 32 97 27"/>
+  <path class="bar" pathLength="1" d="M7 22C12 19 18 18 26 20"/>
+</svg>
