@@ -76,6 +76,13 @@ section > .mono { display: block; margin-bottom: 28px; }
 .links a:hover, .links a:focus-visible { border-color: var(--gold); color: var(--gold); background: rgba(201, 164, 92, .06); outline: none; }
 footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 32px 24px 48px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); }
 
+.game { border: 1px solid var(--line); padding: 16px; --bh-fg: #e8e3d6; --bh-accent: #c9a45c; --bh-bug: #c9a45c; }
+.bh-hud { display: flex; gap: 22px; font: .75rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+.bh-hud b { color: var(--fg); font-weight: 400; }
+.bh-stage { position: relative; height: 260px; background: repeating-linear-gradient(0deg, transparent 0 31px, var(--line) 31px 32px); }
+.bh-stage canvas { width: 100%; height: 100%; display: block; touch-action: none; cursor: crosshair; }
+.bh-start { position: absolute; inset: 0; margin: auto; width: max-content; height: max-content; padding: 12px 20px; border: 1px solid var(--gold); background: var(--bg); color: var(--gold); font: .8rem var(--mono); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.bh-start[hidden] { display: none; }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
@@ -120,7 +127,7 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 		<ul class="stack">
 			<li><span class="mono">01</span><strong>PHP</strong><span>The backbone. Systems, APIs, the heavy lifting.</span></li>
 			<li><span class="mono">02</span><strong>MySQL</strong><span>The memory. Schemas designed to still make sense in five years.</span></li>
-			<li><span class="mono">03</span><strong>Flutter</strong><span>The face. One codebase, every screen, no compromises.</span></li>
+			<li><span class="mono">03</span><strong>Flutter</strong><span>The face. Apps and games — one codebase, every screen.</span></li>
 			<li><span class="mono">04</span><strong>Dart</strong><span>The language behind the face. Typed, sound, quick.</span></li>
 			<li><span class="mono">05</span><strong>Go</strong><span>The edge. For when milliseconds are a matter of principle.</span></li>
 			<li><span class="mono">06</span><strong>WordPress</strong><span>Themes and plugins written from scratch. No page-builder bloat, no borrowed code.</span></li>
@@ -136,8 +143,14 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 		</div>
 	</section>
 
+	<section class="reveal">
+		<span class="mono">04 — Field test</span>
+		<p class="lead" style="margin-bottom:22px">Twenty seconds. Squash the bugs. It's basically my day job.</p>
+		<div class="game"><div data-bughunt></div></div>
+	</section>
+
 	<section class="contact reveal">
-		<span class="mono">04 — Signal</span>
+		<span class="mono">05 — Signal</span>
 		<h2>Have a problem worth solving?</h2>
 		<p class="mono" style="margin:-8px 0 22px">Based in Egypt · UTC+2 · working worldwide</p>
 		<div class="links">
@@ -149,9 +162,10 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 </main>
 <footer class="mono">
 	<span>© <span id="y">2026</span> Ahmed</span>
-	<span>End of file.</span>
+	<span>End of file. · <a href="light.html">v2</a> · <a href="terminal.html">v3</a></span>
 </footer>
 
+<script src="bughunt.js" defer></script>
 <script>
 (function () {
 	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

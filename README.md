@@ -25,7 +25,7 @@
 > ls ./instruments
   php/      the backbone   — systems, APIs, the heavy lifting
   mysql/    the memory     — schemas that still make sense in five years
-  flutter/  the face       — one codebase, every screen
+  flutter/  the face       — apps & games, one codebase, every screen
   dart/     the language   — typed, sound, quick
   go/       the edge       — when milliseconds are a matter of principle
   wp/       the craft      — themes & plugins from scratch, no bloat

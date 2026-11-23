@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ahmed@dev: ~</title>
+<meta name="description" content="Developer. PHP, MySQL, WordPress, Flutter, Dart, Go. Type 'help'.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg: #070a08; --fg: #c8f7d4; --dim: #5f7d68; --hi: #7dffa0; --warn: #ffcf5c; --pink: #ff6ac1; --win: #0d120f; --line: #1a241d; color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: radial-gradient(ellipse at 50% 0%, #0f1f14, var(--bg) 70%); color: var(--fg); font: 15px/1.6 ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; display: grid; place-items: center; padding: 18px; }
+/* CRT scanlines */
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .18) 0 1px, transparent 1px 3px); mix-blend-mode: multiply; }
+.win { width: min(900px, 100%); height: min(640px, calc(100svh - 36px)); display: flex; flex-direction: column; background: var(--win); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 0 0 1px rgba(125, 255, 160, .05), 0 30px 80px -20px rgba(0, 0, 0, .8), 0 0 120px -40px rgba(125, 255, 160, .25); overflow: hidden; }
+.bar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--dim); font-size: .8rem; }
+.bar i { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; }
+.bar i:nth-child(2) { background: #febc2e; } .bar i:nth-child(3) { background: #28c840; }
+.bar span { margin-inline-start: auto; margin-inline-end: auto; }
+.screen { flex: 1; overflow-y: auto; padding: 16px 18px; text-shadow: 0 0 6px rgba(125, 255, 160, .35); scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.screen p { margin: 0; white-space: pre-wrap; word-break: break-word; }
+.dim { color: var(--dim); } .hi { color: var(--hi); } .warn { color: var(--warn); } .pink { color: var(--pink); }
+.screen a { color: var(--hi); }
+.sign { display: block; width: min(300px, 70%); height: auto; margin: 6px 0 10px; overflow: visible; filter: drop-shadow(0 0 6px rgba(125, 255, 160, .5)); }
+.sign path { fill: none; stroke: var(--hi); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.2s cubic-bezier(.65, 0, .35, 1) forwards; }
+.sign .bar2 { stroke: var(--pink); animation-delay: 2.1s; animation-duration: .5s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.line { display: flex; gap: 8px; }
+.line input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: var(--fg); font: inherit; caret-color: var(--hi); text-shadow: inherit; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; border-top: 1px solid var(--line); }
+.chips button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--dim); font: inherit; font-size: .8rem; cursor: pointer; }
+.chips button:hover, .chips button:focus-visible { color: var(--hi); border-color: var(--hi); outline: 0; }
+/* Game inside the terminal */
+.game { margin: 8px 0 12px; padding: 12px; border: 1px dashed var(--dim); border-radius: 8px; --bh-fg: #c8f7d4; --bh-accent: #7dffa0; --bh-bug: #ff6ac1; }
+.bh-hud { display: flex; gap: 18px; font-size: .8rem; color: var(--dim); margin-bottom: 8px; }
+.bh-hud b { color: var(--hi); }
+.bh-stage { position: relative; height: 240px; background: repeating-linear-gradient(0deg, transparent 0 23px, var(--line) 23px 24px); border-radius: 6px; }
+.bh-stage canvas { width: 100%; height: 100%; display: block; touch-action: none; cursor: crosshair; }
+.bh-start { position: absolute; inset: 0; margin: auto; width: max-content; height: max-content; padding: 10px 18px; background: var(--hi); color: var(--bg); border: 0; border-radius: 6px; font: 700 .9rem ui-monospace, monospace; cursor: pointer; }
+.bh-start[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .sign path { animation: none; stroke-dashoffset: 0; } }
+</style>
+</head>
+<body>
+<div class="win" role="application" aria-label="Interactive terminal">
+	<div class="bar"><i></i><i></i><i></i><span>ahmed@dev: ~</span></div>
+	<div class="screen" id="screen" aria-live="polite"></div>
+	<div class="chips" id="chips"></div>
+</div>
+<template id="sigtpl">
+	<svg class="sign" viewBox="-4 -4 108 44" role="img" aria-label="Ahmed">
+		<path pathLength="1" d="M3 33C9 24 14 13 18 4C19 14 21 24 24 32C26 26 28 20 31 14C33 9 35 4 33 3C31 2 30 10 30 20L30 32C31 26 34 21 37 21C40 21 40 26 40 32C41 26 43 21 46 21C49 21 49 26 49 32C50 26 52 21 55 21C58 21 58 26 58 32C59 30 62 29 65 27C68 25 68 21 65 21C61 21 60 27 61 30C62 33 66 33 69 30C72 27 76 22 80 22C75 20 70 24 71 29C72 33 77 33 80 26C82 18 84 8 85 3C85 14 84 24 85 31C86 34 92 32 97 27"/>
+		<path class="bar2" pathLength="1" d="M7 22C12 19 18 18 26 20"/>
+	</svg>
+</template>
+<script src="bughunt.js"></script>
+<script>
+(function () {
+	var screen = document.getElementById('screen'), chips = document.getElementById('chips');
+	var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var history = [], hi = 0, busy = false;
+
+	var C = {
+		help: function () {
+			return [
+				'<span class="hi">available commands</span>',
+				'  whoami     who is this',
+				'  stack      what I work with',
+				'  games      yes, I make those too',
+				'  play       20-second bug hunt',
+				'  contact    open a channel',
+				'  sudo       try it',
+				'  clear      clean the screen'
+			];
+		},
+		whoami: function () {
+			return [
+				'<span class="hi">ahmed</span> — developer. based in egypt <span class="dim">(utc+2)</span>, working worldwide.',
+				'I live where the server meets the screen: back-ends that hold when traffic',
+				'doesn\'t, databases with good memory, apps that feel native.',
+				'<span class="dim">most of what I build, you\'ll never see. that\'s the point.</span>'
+			];
+		},
+		stack: function () {
+			return [
+				'<span class="hi">php</span>        ████████████  the backbone',
+				'<span class="hi">mysql</span>      ███████████░  the memory',
+				'<span class="hi">wordpress</span>  ███████████░  themes &amp; plugins from scratch',
+				'<span class="hi">flutter</span>    ██████████░░  apps &amp; games, every screen',
+				'<span class="hi">dart</span>       ██████████░░  typed, sound, quick',
+				'<span class="hi">go</span>         ████████░░░░  when milliseconds matter'
+			];
+		},
+		games: function () {
+			return [
+				'<span class="pink">♦ games.flutter</span>',
+				'I build 2D games with Flutter — same codebase, phone to browser.',
+				'want proof? type <span class="hi">play</span>.'
+			];
+		},
+		play: function () {
+			var box = document.createElement('div');
+			box.className = 'game';
+			box.innerHTML = '<div data-bughunt></div>';
+			screen.appendChild(box);
+			window.BugHunt && window.BugHunt(box.firstChild);
+			return ['<span class="dim">click / tap the bugs. 20 seconds. go.</span>'];
+		},
+		contact: function () {
+			return [
+				'mail    <a href="mailto:hello@ahmedcode.com">hello@ahmedcode.com</a>',
+				'github  <a href="https://github.com/ahmedcodev" target="_blank" rel="noopener">github.com/ahmedcodev</a>',
+				'web     <a href="https://ahmedcode.com/">ahmedcode.com</a>'
+			];
+		},
+		sudo: function () { return ['<span class="warn">nice try.</span> <span class="dim">this incident will be reported.</span>']; },
+		clear: function () { screen.innerHTML = ''; return []; },
+		ls: function () { return ['whoami  stack  games  play  contact  <span class="dim">.secrets/</span>']; },
+		'cat .secrets': function () { return ['<span class="pink">permission denied.</span> <span class="dim">but you\'re curious. I like that. → contact</span>']; },
+		exit: function () { return ['<span class="dim">there is no exit. only</span> <span class="hi">contact</span>.']; }
+	};
+
+	function print(html, cls) {
+		var p = document.createElement('p');
+		if (cls) { p.className = cls; }
+		p.innerHTML = html;
+		screen.appendChild(p);
+		screen.scrollTop = screen.scrollHeight;
+		return p;
+	}
+	function typeLines(lines, done) {
+		if (reduce || !lines.length) { lines.forEach(function (l) { print(l); }); done && done(); return; }
+		var i = 0;
+		(function next() {
+			if (i >= lines.length) { done && done(); return; }
+			print(lines[i++]);
+			setTimeout(next, 45);
+		})();
+	}
+	function run(raw) {
+		var cmd = raw.trim().toLowerCase().replace(/\s+/g, ' ');
+		print('<span class="hi">ahmed@dev</span>:<span class="dim">~</span>$ ' + raw.replace(/</g, '&lt;'));
+		if (!cmd) { return prompt(); }
+		history.push(raw); hi = history.length;
+		var fn = C[cmd];
+		var out = fn ? fn() : ['<span class="warn">command not found:</span> ' + cmd.replace(/</g, '&lt;') + ' <span class="dim">— try</span> <span class="hi">help</span>'];
+		busy = true;
+		typeLines(out, function () { busy = false; prompt(); });
+	}
+	function prompt() {
+		var line = document.createElement('div');
+		line.className = 'line';
+		line.innerHTML = '<span><span class="hi">ahmed@dev</span>:<span class="dim">~</span>$</span><input aria-label="command" autocomplete="off" autocapitalize="off" spellcheck="false">';
+		screen.appendChild(line);
+		var input = line.querySelector('input');
+		input.focus({ preventScroll: true });
+		screen.scrollTop = screen.scrollHeight;
+		input.addEventListener('keydown', function (e) {
+			if (e.key === 'Enter') { line.remove(); run(input.value); }
+			else if (e.key === 'ArrowUp' && hi > 0) { input.value = history[--hi]; e.preventDefault(); }
+			else if (e.key === 'ArrowDown') { hi = Math.min(history.length, hi + 1); input.value = history[hi] || ''; }
+			else if (e.key === 'Tab') { e.preventDefault(); var m = Object.keys(C).filter(function (k) { return k.indexOf(input.value) === 0; }); if (m.length === 1) { input.value = m[0]; } }
+		});
+	}
+	function exec(cmd) {
+		if (busy) { return; }
+		var cur = screen.querySelector('.line:last-child');
+		if (cur) { cur.remove(); }
+		run(cmd);
+	}
+	screen.addEventListener('click', function (e) {
+		if (e.target.closest('a, .game')) { return; }
+		var i = screen.querySelector('.line:last-child input');
+		if (i) { i.focus({ preventScroll: true }); }
+	});
+	['whoami', 'stack', 'games', 'play', 'contact', 'help'].forEach(function (k) {
+		var b = document.createElement('button');
+		b.type = 'button'; b.textContent = k;
+		b.addEventListener('click', function () { exec(k); });
+		chips.appendChild(b);
+	});
+
+	// Boot sequence.
+	screen.appendChild(document.getElementById('sigtpl').content.cloneNode(true));
+	busy = true;
+	typeLines([
+		'<span class="dim">[ ok ] mounting /dev/ideas</span>',
+		'<span class="dim">[ ok ] loading php, mysql, wordpress, flutter, dart, go</span>',
+		'<span class="dim">[ ok ] coffee level: sufficient</span>',
+		' ',
+		'welcome. this is the personal terminal of <span class="hi">ahmed</span>.',
+		'type <span class="hi">help</span> — or tap a command below.',
+		' '
+	], function () { busy = false; prompt(); });
+})();
+</script>
+</body>
+</html>
