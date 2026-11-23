@@ -58,7 +58,7 @@
 
 **Have a problem worth solving?**
 
-[ahmedcode.com](https://ahmedcode.com/)
+[ahmedcode.com](https://ahmedcode.com/) · [hello@ahmedcode.com](mailto:hello@ahmedcode.com)
 
 <sub>— end of file —</sub>
 
