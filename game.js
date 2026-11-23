@@ -13,7 +13,7 @@
 			'<div class="bh-stage" tabindex="0" aria-label="Game: tap or press space to flip gravity"><canvas></canvas><button type="button" class="bh-start">▶ Deploy</button></div>';
 		var stage = root.querySelector('.bh-stage'), canvas = root.querySelector('canvas'), ctx = canvas.getContext('2d');
 		var btn = root.querySelector('.bh-start'), sEl = root.querySelector('[data-s]'), vEl = root.querySelector('[data-v]'), bEl = root.querySelector('[data-b]');
-		var W = 0, H = 0, PAD = 22, R = 9, p, obs, trail, sparks, speed, dist, nextGap, running = false, last = 0, shake = 0;
+		var W = 0, H = 0, PAD = 22, R = 9, p = null, obs = [], trail = [], sparks = [], speed = 0, dist = 0, nextGap = 0, running = false, last = 0, shake = 0;
 		bEl.textContent = store('deploy-best');
 
 		function size() {
