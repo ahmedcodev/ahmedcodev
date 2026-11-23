@@ -71,7 +71,7 @@ section > .mono { display: block; margin-bottom: 28px; }
 .redact:hover, .redact:focus { background: transparent; color: var(--gold); outline: none; }
 
 .stack { list-style: none; margin: 0; padding: 0; }
-.stack li { display: grid; grid-template-columns: 3.2rem 8rem 1fr; align-items: baseline; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); transition: padding .3s, color .3s; }
+.stack li { display: grid; grid-template-columns: 3.2rem 10rem 1fr; align-items: baseline; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); transition: padding .3s, color .3s; }
 .stack li:hover { padding-inline-start: 10px; }
 .stack li:hover strong { color: var(--gold); }
 .stack strong { font-size: 1.2rem; font-weight: 500; transition: color .3s; }
@@ -95,6 +95,7 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 .bh-stage canvas { width: 100%; height: 100%; display: block; touch-action: none; cursor: crosshair; }
 .bh-start { position: absolute; inset: 0; margin: auto; width: max-content; height: max-content; padding: 12px 20px; border: 1px solid var(--gold); background: var(--bg); color: var(--gold); font: .8rem var(--mono); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
 .bh-start[hidden] { display: none; }
+.bh-stage { outline: none; user-select: none; -webkit-user-select: none; }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
@@ -140,10 +141,9 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 		<ul class="stack">
 			<li><span class="mono">01</span><strong class="c1">PHP</strong><span>The backbone. Systems, APIs, the logic behind every click.</span></li>
 			<li><span class="mono">02</span><strong class="c5">MySQL</strong><span>The memory. Schemas designed to still make sense in five years.</span></li>
-			<li><span class="mono">03</span><strong class="c2">Flutter</strong><span>The face. Apps and games — one codebase, every screen.</span></li>
-			<li><span class="mono">04</span><strong class="c4">Dart</strong><span>The language behind the face. Typed, sound, quick.</span></li>
-			<li><span class="mono">05</span><strong class="c6">Go</strong><span>The edge. For when milliseconds are a matter of principle.</span></li>
-			<li><span class="mono">06</span><strong class="c3">WordPress</strong><span>Themes and plugins from scratch. Pixel-perfect front, clean code behind.</span></li>
+			<li><span class="mono">03</span><strong class="c2">Flutter &amp; Dart</strong><span>The face. Apps and games — one codebase, every screen.</span></li>
+			<li><span class="mono">04</span><strong class="c6">Go</strong><span>The edge. For when milliseconds are a matter of principle.</span></li>
+			<li><span class="mono">05</span><strong class="c3">WordPress</strong><span>Themes and plugins from scratch. Pixel-perfect front, clean code behind.</span></li>
 		</ul>
 	</section>
 
@@ -158,8 +158,8 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 
 	<section class="reveal">
 		<span class="mono">04 — Field test</span>
-		<p class="lead" style="margin-bottom:22px">Twenty seconds. Squash the bugs. It's basically my day job.</p>
-		<div class="game"><div data-bughunt></div></div>
+		<p class="lead" style="margin-bottom:22px">Build the stack. Tap to drop each layer — miss, and it gets cut. Stack perfectly to grow it back.</p>
+		<div class="game"><div data-game></div></div>
 	</section>
 
 	<section class="contact reveal">
@@ -177,7 +177,7 @@ footer { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; paddi
 	<span>End of file. <a href="terminal" style="color:var(--dim);text-decoration:none" title="you found it">&gt;_</a></span>
 </footer>
 
-<script src="bughunt.js" defer></script>
+<script src="stack.js" defer></script>
 <script>
 (function () {
 	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
